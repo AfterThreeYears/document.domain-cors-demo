@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>我是index页面</p>
+  <button>click</button>
+  <iframe id="iframe" src="http://a.example.com:8080/index1.html" frameborder="0"></iframe>
+  <script>
+    document.domain= 'example.com';
+    function handleClick() {
+      const contentWindow = document.querySelector('#iframe').contentWindow;
+      alert(contentWindow.document.getElementById('p').innerHTML);
+    }
+    document.querySelector('button').addEventListener('click', handleClick, false);
+  </script>
+</body>
+</html>
